@@ -18,14 +18,14 @@ The current project has some amount of support for SAMPLE1-SAMPLE12, and GAME1-G
 
 ## First time setup
 
-Place your PTC .nds file in the resources/ directory, then from a terminal/console run
+Move your PTC .nds file to resources/rom.nds, then from a terminal/console run
 
-### Linux
+### Linux (optional)
 ```
 cd resources/
 ./nds_extract <ptc_file>.nds
 ```
-### Windows
+### Windows (required for now)
 ```
 cd resources/
 nds_extract.bat <ptc_file>.nds
@@ -87,12 +87,16 @@ Note that expressions are updated per-frame, not as values change. Also, note th
 # Building
 
 Requirements: 
-* SFML 2.5.1
+* SFML 2.5.1 (or newer 2.x on Linux)
 * g++ supporting c++17 (c++1z may work as well, with some effort)
 * make or something compatible
 * Python 3 (for extraction scripts, technically optional if you manually perform the extraction)
 
-## Linux
+## Linux (automatic)
+
+Run build_linux.sh after obtaining all prerequisites.
+
+## Linux (manual)
 
 Clone this repo, then create a build directory named "build/" in the root of the repo. Ensure you have SFML installed, and run make. It should work (currently untested on other machines).
 If you don't have SFML installed, go here first: https://www.sfml-dev.org/tutorials/2.5/start-linux.php
@@ -105,9 +109,9 @@ mkdir build/
 make
 ```
 
-## Windows
+## Windows (manual)
 
-Instructions should be roughly the same as linux, but may require some modifications to the makefile. It is expected you have git installed and accessible from the command line.
+Instructions should be roughly the same as Linux (manual), but may require some modifications to the makefile. It is expected you have git installed and accessible from the command line.
 It is suggested you use the version with MinGW 7.3.0 32-bit linked from https://www.sfml-dev.org/download/sfml/2.5.1/, as it is known to work. (Add the mingw/bin folder within MinGW to your path for best results.)
 
 If you install SFML to a location other than C:/SFML-2.5.1/, modify the SFML_PATH variable in the makefile to reflect this.
