@@ -87,7 +87,7 @@ Note that expressions are updated per-frame, not as values change. Also, note th
 # Building
 
 Requirements: 
-* SFML 2.5.1 (or newer 2.x on Linux)
+* SFML 2.6.2
 * g++ supporting c++17 (c++1z may work as well, with some effort)
 * make or something compatible
 * Python 3 (for extraction scripts, technically optional if you manually perform the extraction)
@@ -103,7 +103,7 @@ If you don't have SFML installed, go here first: https://www.sfml-dev.org/tutori
 
 Commands will probably look something like this:
 ```
-git clone https://github.com/Minxrod/PTC-EmkII.git
+git clone -b updates https://github.com/PuccamiteTech/PTC-EmkII.git
 cd PTC-EmkII
 mkdir build/
 make
@@ -112,13 +112,14 @@ make
 ## Windows (manual)
 
 Instructions should be roughly the same as Linux (manual), but may require some modifications to the makefile. It is expected you have git installed and accessible from the command line.
-It is suggested you use the version with MinGW 7.3.0 32-bit linked from https://www.sfml-dev.org/download/sfml/2.5.1/, as it is known to work. (Add the mingw/bin folder within MinGW to your path for best results.)
+It is suggested you use the version with WinLibs MSVCRT 13.1.0 linked from https://www.sfml-dev.org/download/sfml/2.6.2/, as it is known to work. (Add the mingw/bin folder within MinGW to your path for best results.)
+You will need to build the SSEQ player library from https://github.com/PuccamiteTech/Partial-SSEQ-Player/tree/updates yourself and copy it into the lib folder.
 
-If you install SFML to a location other than C:/SFML-2.5.1/, modify the SFML_PATH variable in the makefile to reflect this.
+If you install SFML to a location other than C:/SFML-2.6.2/, modify the SFML_PATH variable in the makefile to reflect this.
 
 Then, the instructions should be similar to
 ```
-git clone https://github.com/Minxrod/PTC-EmkII.git
+git clone -b updates https://github.com/PuccamiteTech/PTC-EmkII.git
 cd PTC-EmkII
 mkdir build/
 mingw32-make
@@ -128,7 +129,7 @@ Additionally, you will need to move the relevant .dll files to the project root.
 If you used the suggested installation folder, you can use the following commands:
 
 ```
-cp C:\SFML-2.5.1\bin\* .
+cp C:\SFML-2.6.2\bin\* .
 cp lib\SSEQPlayer.dll .
 ```
 
