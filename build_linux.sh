@@ -1,6 +1,6 @@
 #!/bin/bash
 
-player_link="https://github.com/Minxrod/Partial-SSEQ-Player"
+player_link="https://github.com/PuccamiteTech/Partial-SSEQ-Player"
 
 project_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 player_dir="${project_dir}/external/sseq"
@@ -13,7 +13,7 @@ archive_file="${res_dir}/rom.nds"
 player_file="${player_dir}/libSSEQPlayer.so"
 
 mkdir -p "$player_dir" "$lib_dir" "$build_dir" && \
-git clone "$player_link" "$player_dir" && \
+git clone -b updates "$player_link" "$player_dir" && \
 make -C "$player_dir" lib && \
 mv "$player_file" "${lib_dir}/" && \
 make -C "$project_dir" && \
