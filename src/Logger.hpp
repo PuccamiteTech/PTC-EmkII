@@ -23,7 +23,7 @@ namespace logger {
 	const int DEBUG_PROGRAM = (1<<18);
 
 //	int debug_on = -1; //bitmask
-	const int debug_level = 5; //0= none 5=all
+	const int debug_level = 2; //0= none 5=all
 
 	template <typename T, int level>
 	void common(std::ostream& os, std::string info, const T& message){
