@@ -18,20 +18,22 @@ The current project has some amount of support for SAMPLE1-SAMPLE12, and GAME1-G
 
 ## First time setup
 
-Move your PTC .nds file to resources/rom.nds, then from a terminal/console run
+Move your PTC .nds file to resources/rom.nds in a path without spaces.
 
-### Linux (optional)
+**If you are installing manually**, from a terminal/console, run
+
+### Linux
 ```
 cd resources/
 ./nds_extract <ptc_file>.nds
 ```
-### Windows (required for now)
+### Windows
 ```
 cd resources/
 nds_extract.bat <ptc_file>.nds
 ```
 
-This should automatically extract all required graphics and sound resources to the correct locations.
+This should automatically extract all required graphics and sound resources to the correct locations, alongside the default programs.
 
 If the precompiled versions of ndstool or sdatxtract do not work, see the Tools link below and compile/download the binaries yourself, and replace the copies in resources/tools/.
 
@@ -91,15 +93,22 @@ Requirements:
 * g++ supporting c++17 (c++1z may work as well, with some effort)
 * make or something compatible
 * Python 3 (for extraction scripts, technically optional if you manually perform the extraction)
+* git (for installation scripts, also optional if you manually perform the installation)
 
 ## Linux (automatic)
 
 Run build_linux.sh after obtaining all prerequisites.
+You may need to give the script the execute permission.
+
+## Windows (automatic)
+
+Run build_mingw.bat after obtaining all prerequisites.
+Ensure git and MinGW are in PATH.
 
 ## Linux (manual)
 
-Clone this repo, then create a build directory named "build/" in the root of the repo. Ensure you have SFML installed, and run make. It should work (currently untested on other machines).
-If you don't have SFML installed, go here first: https://www.sfml-dev.org/tutorials/2.5/start-linux.php
+Clone this repo, then create a build directory named "build/" in the root of the repo. Ensure you have SFML installed, and run make. It should work.
+If you don't have SFML installed, go here first: https://www.sfml-dev.org/tutorials/2.6/start-linux.php
 
 Commands will probably look something like this:
 ```
