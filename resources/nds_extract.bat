@@ -1,10 +1,10 @@
 :: Usage: nds_extract.bat <ptc_file_name>.nds
 
-set NDS_FILE=%1
+set "NDS_FILE=%~1"
 :: sdatxtract extraction path
-set TEMP_PATH=%NDS_FILE:~0,-4%\0\
+for %%F in ("%NDS_FILE%") do set "TEMP_PATH=%%~dpnF\0\"
 :: ndstool extraction path
-set EXTRACT_PATH=extract\
+set "EXTRACT_PATH=extract\"
 
 @echo Found .nds file: %NDS_FILE%
 
@@ -23,7 +23,7 @@ move %EXTRACT_PATH%*.NSCR ui\
 move %EXTRACT_PATH%*.NCGR ui\
 move %EXTRACT_PATH%*.NCLR ui\
 
-echo "Moving sample programs..."
+@echo Moving sample programs...
 for %%f in (%EXTRACT_PATH%*.PRG) do python "tools/txt_to_ptc.py" %%f
 
 move *.PTC ..\programs\
@@ -56,7 +56,5 @@ move %TEMP_PATH%sequence\*.sseq sounds\
 move %TEMP_PATH%wave\*.swar sounds\
 
 @echo Removing extraction directories
-del %TEMP_PATH%
-rmdir %TEMP_PATH%
-del %EXTRACT_PATH%
-rmdir %EXTRACT_PATH%
+rmdir /s /q "%TEMP_PATH%"
+rmdir /s /q "%EXTRACT_PATH%"
